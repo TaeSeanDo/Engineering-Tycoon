@@ -5,14 +5,14 @@ Robot-production class
 
 class Robot:
     """docstring for Robot"""
-    def __init__(self, budget, colors, size, max_speed, torque, cooling_YN,  battery_life, consumer_utility = 0, revenue = 0):
+    def __init__(self, budget, colors, size, max_speed = 1, cooling_system = 1,  battery_life, consumer_utility = 0, revenue = 0):
         super(Robot, self).__init__()
         self.budget = budget
         self.color = colors
         self.size =  size
         self.max_speed = max_speed
         self.torque = torque
-        self.cooling_YN = cooling_YN
+        self.cooling_system = cooling_system
         self.battery_life = battery_life
         self.consumer_utility = consumer_utility
         self.revenue = revenue
@@ -20,3 +20,4 @@ class Robot:
         self.consumer_utility += consumer_utility_change
         self.revenue += revenue_change
         self.budget += budget_change
+    def __str__(self)
