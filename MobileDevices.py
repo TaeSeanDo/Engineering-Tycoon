@@ -5,7 +5,7 @@ class mobile_devices:
             revenue = 0,  price = 0):
         self.budget = 600000/difficulty
         self.colors = colors
-        self.processor_type = processor_type
+        self.processor_proficiency = processor_proficiency
         self.internal_storage_capacity = internal_storage_capacity
         self.headjack_YN = headjack_YN
         self.battery_life = battery_life
