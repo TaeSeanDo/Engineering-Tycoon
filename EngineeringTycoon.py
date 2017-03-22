@@ -3,7 +3,7 @@ Sean Tierney
 Arnob Kabir
 main program
 """
-import RobotProduction
+from RobotProduction import Robot
 
 print "OK, so you chose robot"
 
@@ -16,5 +16,6 @@ width = int(raw_input("What about the width?"))
 height = int(raw_input("The height?"))
 size = [length, width, height]
 difficulty = int(raw_input("What is the difficulty?"))
-robot = RobotProduction.Robot(difficulty, colors, size)
+robot = Robot(difficulty, colors, size)
 print robot
+print robot.get_budget()
