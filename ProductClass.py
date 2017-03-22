@@ -6,15 +6,9 @@ Product class
 
 class Product:
     """docstring for Robot"""
-    def __init__(self, difficulty, consumer_utility, revenue):
+    def __init__(self, difficulty, revenue):
         self.budget = 600 / difficulty
-        self.consumer_utility = consumer_utility
         self.revenue = revenue
-    def investment(self, consumer_utility_change, revenue_change, budget_change):
-        self.consumer_utility += consumer_utility_change
-        self.revenue += revenue_change
-        self.budget += budget_change
-    def get_budget(self):
-        msg = "Your budget is "
-        msg += str(self.budget)
-        return msg
+    def investment(self, revenue_increase, budget_decrease):
+        self.revenue += revenue_increase
+        self.budget -= budget_decrease
