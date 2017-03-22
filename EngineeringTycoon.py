@@ -34,7 +34,7 @@ if product_choice == 1:
     Each added color costs $5000.\
     How many colors do you want your product to come in? \
     (minimum is 1, maximum is 5)"))
-    MD_processor_proficiency = raw_input('You need a processor for your device. ()') 
+    MD_processor_proficiency = raw_input('You need a processor for your device. ()')
     MD_internal_storage_capacity = raw_input("Internal storage capacity:")
     MD_headjack_YN = raw_input("Should we have a headjack?")
     MD_battery_life = raw_input("Battery life:")
@@ -48,15 +48,15 @@ if product_choice == 1:
 if product_choice == 2:
     print "OK, so you chose robot"
 
-colors_length = int(raw_input("How many colors should it come in?"))
-colors = []
-for i in range(colors_length):
-    colors.append(raw_input("What other color?"))
-length = int(raw_input("What should the length of the robot be?"))
-width = int(raw_input("What about the width?"))
-height = int(raw_input("The height?"))
-size = [length, width, height]
-difficulty = int(raw_input("What is the difficulty?"))
-robot = Robot(difficulty, colors, size)
-print robot
-print robot.get_budget()
+    colors_length = int(raw_input("How many colors should it come in?"))
+    colors = []
+    for i in range(colors_length):
+        colors.append(raw_input("What other color?"))
+    length = int(raw_input("What should the length of the robot be?"))
+    width = int(raw_input("What about the width?"))
+    height = int(raw_input("The height?"))
+    size = [length, width, height]
+    difficulty = int(raw_input("What is the difficulty?"))
+    robot = Robot(difficulty, colors, size)
+    print robot
+    print robot.get_budget()
