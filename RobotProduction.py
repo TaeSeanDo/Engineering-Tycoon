@@ -7,8 +7,8 @@ from ProductClass import Product
 
 class Robot(Product):
     """Class for Robot, inherits Product class"""
-    def __init__(self, difficulty, colors, size, max_speed = 1, cooling_system = 1,  battery_life = 1, consumer_utility = 0, revenue = 0):
-        Product.__init__(self, difficulty, consumer_utility, revenue)
+    def __init__(self, difficulty, colors, size, max_speed = 1, cooling_system = 1,  battery_life = 1, revenue = 0):
+        Product.__init__(self, difficulty, revenue)
         self.colors = colors
         self.size =  size
         self.max_speed = max_speed
@@ -27,5 +27,6 @@ class Robot(Product):
                     msg += ", "
                 if i == len(self.colors) - 2:
                     msg += "and "
-        msg += '.'
+        msg += ". \n\tBudget: " + str(self.budget)
+        msg += "\n\tRevenue: " + str(self.revenue)
         return msg
