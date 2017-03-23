@@ -14,6 +14,14 @@ class Robot(Product):
         self.max_speed = max_speed
         self.cooling_system = cooling_system
         self.battery_life = battery_life
+    def investment(self, max_speed_increase, cooling_increase, battery_life_increase, cost):
+        self.max_speed += max_speed_increase
+        self.cooling_system += cooling_increase
+        self.battery_life += battery_life_increase
+        revenue_change = max_speed_increase * 10000 + cooling_increase * 1000 + battery_life_increase + 50000
+        Product.investment(self, revenue_change, cost)
+
+
     def __str__(self):
         msg = "Your robot is " + str(self.size[0]) + " x " + str(self.size[1]) + " x " + str(self.size[2]) \
                 + " and comes in " + str(len(self.colors)) + " colors: "

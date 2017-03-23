@@ -1,6 +1,6 @@
 #Sets up the class for mobile devices
 class mobile_devices:
-    def __init__(self, difficulty, colors, processor_type, internal_storage_capacity, \
+    def __init__(self, difficulty, colors, processor_proficiency, internal_storage_capacity, \
             headjack_YN, battery_life, material, consumer_utility = 0,\
             revenue = 0,  price = 0):
         self.budget = 600000/difficulty

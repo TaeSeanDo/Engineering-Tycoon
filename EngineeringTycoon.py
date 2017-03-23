@@ -3,10 +3,10 @@ Sean Tierney
 Arnob Kabir
 main program
 """
-from RobotProduction import Robot
+from RobotDecisions import robot_code
 
 import MobileDevices
-product_choice = str(raw_input("Do you want to build (1) a mobile device, (2) a robot, or (3) a snowman?"))
+product_choice = int(raw_input("Do you want to build (1) a mobile device, (2) a robot, or (3) a snowman?"))
 
 if product_choice == 1:
     print "Before we can get started with selling your mobile devices, we need to know what sort of features the mobile device has."
@@ -17,7 +17,7 @@ if product_choice == 1:
     #MD stands for "Mobile Device"
     MD_difficulty = -1
     while MD_difficulty > 3 or MD_difficulty < 1:
-        MD_difficulty = int(raw_input("First, we have to set the difficulty. Would you like to play on Easy('1', Medium('2'), or Hard('3')?"))
+        MD_difficulty = int(raw_input("First, we have to set the difficulty. Would you like to play on Easy('1'), Medium('2'), or Hard('3')?"))
         if MD_difficulty == 1:
             print "Your budget is $600000"
         elif MD_difficulty == 2:
@@ -46,17 +46,7 @@ if product_choice == 1:
     MD_material, MD_price)
 
 if product_choice == 2:
-    print "OK, so you chose robot"
+    robot_code()
 
-    colors_length = int(raw_input("How many colors should it come in?"))
-    colors = []
-    for i in range(colors_length):
-        colors.append(raw_input("What other color?"))
-    length = int(raw_input("What should the length of the robot be?"))
-    width = int(raw_input("What about the width?"))
-    height = int(raw_input("The height?"))
-    size = [length, width, height]
-    difficulty = int(raw_input("What is the difficulty?"))
-    robot = Robot(difficulty, colors, size)
-    print robot
-    print robot.get_budget()
+if product_choice == 3:
+    print "Do you want to build a snowman?"
