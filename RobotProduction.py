@@ -35,6 +35,6 @@ class Robot(Product):
                     msg += ", "
                 if i == len(self.colors) - 2:
                     msg += "and "
-        msg += '.'
-        msg
+        msg += ". \n\tBudget: " + str(self.budget)
+        msg += "\n\tRevenue: " + str(self.revenue)
         return msg
