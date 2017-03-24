@@ -6,7 +6,7 @@ main program
 from RobotDecisions import robot_code
 
 import MobileDevices
-produ
+
 product_choice = int(raw_input("Do you want to build (1) a mobile device, (2) a robot, or (3) a snowman?"))
 
 if product_choice == 1:
@@ -47,3 +47,4 @@ if product_choice == 1:
     MD_material, MD_price)
 
 if product_choice == 2:
+    robot_code()

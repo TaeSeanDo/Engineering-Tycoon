@@ -106,10 +106,10 @@ def robot_code():
                     print "You chose to play it safe."
 
         if i == 2:
-            try:
-                decision = int(raw_input("Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?"))
-            except:
-                decision = int(raw_input("Enter a number between 1 and 3, please."))
+            decision1 = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
+            while (decision1 != '1' and decision1 != '2' and decision1 != '3'):
+                decision1 = raw_input("Enter a number between 1 and 3, please.")
+            decision1 = int(decision1)
             if decision == 1 or decision == '1':
                 max_speed_increase = 1
                 cooling_increase = 0
@@ -130,10 +130,10 @@ def robot_code():
                 print "You chose to invest in battery."
 
         if i == 3:
-            try:
-                decision = int(raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?"))
-            except:
-                decision = int(raw_input("Enter a number between 1 and 3, please."))
+            decision1 = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
+            while (decision1 != '1' and decision1 != '2' and decision1 != '3'):
+                decision1 = raw_input("Enter a number between 1 and 3, please.")
+            decision1 = int(decision1)
             if decision == 1 or decision == '1':
                 max_speed_increase = 1
                 cooling_increase = 0
@@ -154,10 +154,10 @@ def robot_code():
                 print "You chose to invest in battery."
 
         if i == 4:
-            try:
-                decision = int(raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?"))
-            except:
-                decision = int(raw_input("Enter a number between 1 and 3, please."))
+            decision1 = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
+            while (decision1 != '1' and decision1 != '2' and decision1 != '3'):
+                decision1 = raw_input("Enter a number between 1 and 3, please.")
+            decision1 = int(decision1)
             if decision == 1 or decision == '1':
                 max_speed_increase = 1
                 cooling_increase = 0
