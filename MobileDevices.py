@@ -1,22 +1,16 @@
 #Sets up the class for mobile devices
 class mobile_devices:
-    def __init__(self, difficulty, colors, processor_proficiency, internal_storage_capacity, \
-            headjack_YN, battery_life, material, consumer_utility = 0,\
-            revenue = 0,  price = 0):
+    def __init__(self, difficulty, colors, processor_proficiency = 1, internal_storage_capacity = 1, \
+headjack_YN, battery_life, material, revenue = 0,  price = 0):
         self.budget = 600000/difficulty
         self.colors = colors
-        self.processor_proficiency = processor_proficiency
-        self.internal_storage_capacity = internal_storage_capacity
         self.headjack_YN = headjack_YN
         self.battery_life = battery_life
         self.material = material
-        self.consumer_utility = consumer_utility
         self.revenue = revenue
         self.price = price
 
-#Investment function keeps track of money and the consumer utility
-    def investment(self, consumer_utility_change, revenue_change, \
-    budget_change):
-        self.consumer_utility += consumer_utility_change
+#Investment function keeps track of money
+    def investment(self, revenue_change, budget_change):
         self.revenue += revenue_change
         self.budget += budget_change
