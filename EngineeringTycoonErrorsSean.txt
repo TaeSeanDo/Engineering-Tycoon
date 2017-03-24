@@ -1,1 +1,27 @@
 Engineering Tycoon Error Log (for Sean only)
+
+1.  File "C:\Users\seant\Documents\GitHub\APCSP-Create-Pong\Pong\EngineeringTycoon.py", line 33
+    d
+    ^
+SyntaxError: EOL while scanning single-quoted string
+
+random 'd' where there should not be
+
+2.Traceback (most recent call last):
+  File "C:\Users\seant\Documents\GitHub\APCSP-Create-Pong\Pong\EngineeringTycoon.py", line 49, in <module>
+    robot_code()
+  File "C:\Users\seant\Documents\GitHub\APCSP-Create-Pong\Pong\RobotDecisions.py", line 128, in robot_code
+    robot.investment(max_speed_increase, cooling_increase, battery_life_increase, cost)
+  File "C:\Users\seant\Documents\GitHub\APCSP-Create-Pong\Pong\RobotProduction.py", line 22, in investment
+    Product.investment(revenue_change, cost)
+TypeError: unbound method investment() must be called with Product instance as first argument (got int instance instead)
+
+forgot to define self argument when calling investment method of superclass in Robot subclass
+
+3.Traceback (most recent call last):
+  File "C:\Users\seant\Documents\GitHub\APCSP-Create-Pong\Pong\EngineeringTycoon.py", line 62, in <module>
+    print robot.get_budget()
+AttributeError: Robot instance has no attribute 'get_budget'
+
+forgot to get rid of calling get_budget when removed from Robot class
+4.
