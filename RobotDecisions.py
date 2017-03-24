@@ -1,4 +1,5 @@
 from RobotProduction import Robot
+import random
 
 def robot_code():
     print "OK, so you chose robot"
@@ -54,7 +55,7 @@ def robot_code():
                     max_speed_increase = 3
                     cooling_increase = 0
                     battery_life_increase = 0
-                    cost = 60000
+                    cost = 6000
                     print "You chose to take a risk."
                 elif decision2 == 2 or decision2 == '2':
                     max_speed_increase = 1
@@ -75,7 +76,7 @@ def robot_code():
                     max_speed_increase = 0
                     cooling_increase = 5
                     battery_life_increase = 0
-                    cost = 60000
+                    cost = 6000
                     print "You chose to take a risk."
                 elif decision2 == 2 or decision2 == '2':
                     max_speed_increase = 0
@@ -96,7 +97,7 @@ def robot_code():
                     max_speed_increase = 0
                     cooling_increase = 0
                     battery_life_increase = 1
-                    cost = 60000
+                    cost = 6000
                     print "You chose to take a risk."
                 elif decision2 == 2 or decision2 == '2':
                     max_speed_increase = 0
@@ -106,30 +107,29 @@ def robot_code():
                     print "You chose to play it safe."
 
         if i == 2:
+            decision3 = str(raw_input("All great feats of engineering were accomplished through extensive research, though research does not always work. Would you like to research for you product? (Y/N)")).upper
+            while (decision3 != 'Y' and decision3 != 'N'):
+                decision3 = raw_input("Enter Y or N, please.")
+            if decision3 == 'Y':
+                research = True
+                print "You chose to research for your robot."
+                cost = 10000
+            else:
+                research = False
+                print "You chose not to research for your robot."
+                cost = 0
+            research_rand_num = random.randint(1, 10)
+            if robot.difficulty == 1 and research_rand_num <= 5:
+                research
+            max_speed_increase = 0
+            cooling_increase = 0
+            battery_life_increase = 0
+
+        if i == 3:
             decision = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
             while (decision != '1' and decision != '2' and decision != '3'):
                 decision = raw_input("Enter a number between 1 and 3, please.")
             decision = int(decision)
-            if decision == 1:
-                max_speed_increase = 1
-                cooling_increase = 0
-                battery_life_increase = 0
-                cost = 2000
-                print "You chose to invest in speed."
-            elif decision == 2:
-                max_speed_increase = 0
-                cooling_increase = 1
-                battery_life_increase = 0
-                cost = 2000
-                print "You chose to invest in cooling."
-            elif decision == 3:
-                max_speed_increase = 0
-                cooling_increase = 0
-                battery_life_increase = 1
-                cost = 5000
-                print "You chose to invest in battery."
-
-        if i == 3:
             if decision == 1:
                 max_speed_increase = 1
                 cooling_increase = 0
