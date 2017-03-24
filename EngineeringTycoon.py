@@ -4,13 +4,23 @@ Arnob Kabir
 main program
 """
 from RobotDecisions import robot_code
-
 import MobileDevices
 
+def enter():
+    raw_input()
 
-product_choice = int(raw_input("Do you want to build (1) a mobile device, (2) a robot, or (3) a snowman?"))
+ChocDecision = raw_input("When you were young, you were absolutely obsessed with chocolate. One day, a 7 year old girl came up to you and asked you if she could have some of your chocolate. Do you give her some? (Y/N)").upper
+if ChocDecision == "Y":
+    print "You may have less chocolate, but at least someone else could share your passion for chocolate."
+if ChocDecision == "N":
+    print "As you told the girl that you would not give her chocolate, her eyes lit up with a burning passion. You may regret this decision in the future, but only time will tell."
 
-if product_choice == 1:
+enter()
+print '20 years after the little "Chocolate Incident", you have become a business man and have decided to enter the engineering industry.'
+enter()
+product_choice = raw_input("Do you want to build (1) a mobile device, (2) a robot, or (3) a snowman?")
+
+if product_choice == "1":
     #MD stands for "Mobile Device"
     MD_difficulty = 0
     while MD_difficulty > 3 or MD_difficulty < 1:
@@ -63,7 +73,7 @@ if product_choice == 1:
 
     UserProduct = MobileDevices.mobile_devices(MD_color, MD_processor_proficiency, MD_internal_storage_capacity, MD_headjack_YN, MD_battery_life, MD_material, MD_price)
 
-elif product_choice == 2:
+elif product_choice == "2":
     robot_code()
 
 elif product_choice == 3:
