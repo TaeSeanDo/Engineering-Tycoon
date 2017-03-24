@@ -35,3 +35,9 @@ investment method got deleted in Robot class
 Fixed by recreating investment method
 
 5. Try to merge robot-decisions-differentiation branch with master branch but there were conflicting files.
+6.Traceback (most recent call last):
+  File "C:\Users\seant\Documents\GitHub\APCSP-Create-Pong\Pong\EngineeringTycoon.py", line 67, in <module>
+    robot_code()
+  File "C:\Users\seant\Documents\GitHub\APCSP-Create-Pong\Pong\RobotDecisions.py", line 182, in robot_code
+    if budget <= 0:
+NameError: global name 'budget' is not defined

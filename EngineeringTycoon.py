@@ -3,7 +3,6 @@ Sean Tierney
 Arnob Kabir
 main program
 """
-<<<<<<< HEAD
 from RobotDecisions import robot_code
 
 import MobileDevices
@@ -15,10 +14,10 @@ if product_choice == 1:
     #MD stands for "Mobile Device"
     MD_difficulty = 0
     while MD_difficulty > 3 or MD_difficulty < 1:
-    try:
-        MD_difficulty = int(raw_input("First, we have to set the difficulty. Would you like to play on Easy('1', Medium('2'), or Hard('3')?"))
-    except:
-        MD_difficulty = int(raw_input("Try again."))
+        try:
+            MD_difficulty = int(raw_input("First, we have to set the difficulty. Would you like to play on Easy('1', Medium('2'), or Hard('3')?"))
+        except:
+            MD_difficulty = int(raw_input("Try again."))
         if MD_difficulty == 1:
             print "Your budget is $600000"
         elif MD_difficulty == 2:

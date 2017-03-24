@@ -1,7 +1,7 @@
 #Sets up the class for mobile devices
 class mobile_devices:
-    def __init__(self, difficulty, colors, processor_proficiency = 1, internal_storage_capacity = 1, \
-headjack_YN, battery_life, material, revenue = 0,  price = 0):
+    def __init__(self, difficulty, colors, headjack_YN, battery_life, material,
+        processor_proficiency=1, internal_storage_capacity=1, revenue=0,  price=0):
         self.budget = 600000/difficulty
         self.colors = colors
         self.headjack_YN = headjack_YN

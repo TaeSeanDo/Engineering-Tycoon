@@ -106,11 +106,11 @@ def robot_code():
                     print "You chose to play it safe."
 
         if i == 2:
-            decision1 = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
-            while (decision1 != '1' and decision1 != '2' and decision1 != '3'):
-                decision1 = raw_input("Enter a number between 1 and 3, please.")
-            decision1 = int(decision1)
-            if decision == 1 or decision == '1':
+            decision = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
+            while (decision != '1' and decision != '2' and decision != '3'):
+                decision = raw_input("Enter a number between 1 and 3, please.")
+            decision = int(decision)
+            if decision == 1:
                 max_speed_increase = 1
                 cooling_increase = 0
                 battery_life_increase = 0
@@ -150,10 +150,10 @@ def robot_code():
                 print "You chose to invest in battery."
 
         if i == 4:
-            decision1 = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
-            while (decision1 != '1' and decision1 != '2' and decision1 != '3'):
-                decision1 = raw_input("Enter a number between 1 and 3, please.")
-            decision1 = int(decision1)
+            decision = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
+            while (decision != '1' and decision != '2' and decision != '3'):
+                decision = raw_input("Enter a number between 1 and 3, please.")
+            decision = int(decision)
             if decision == 1:
                 max_speed_increase = 1
                 cooling_increase = 0
@@ -179,5 +179,5 @@ def robot_code():
             show_stats = str(raw_input("Type 'Y' or 'N'"))
         if show_stats == 'Y':
             print robot
-        if budget <= 0:
+        if robot.budget <= 0:
             break;
