@@ -17,3 +17,21 @@ random 'd' where there should not be
 TypeError: unbound method investment() must be called with Product instance as first argument (got int instance instead)
 
 forgot to define self argument when calling investment method of superclass in Robot subclass
+
+3.Traceback (most recent call last):
+  File "C:\Users\seant\Documents\GitHub\APCSP-Create-Pong\Pong\EngineeringTycoon.py", line 62, in <module>
+    print robot.get_budget()
+AttributeError: Robot instance has no attribute 'get_budget'
+
+forgot to get rid of calling get_budget when removed from Robot class
+4.Traceback (most recent call last):
+  File "C:\Users\seant\Documents\GitHub\APCSP-Create-Pong\Pong\EngineeringTycoon.py", line 50, in <module>
+    robot_code()
+  File "C:\Users\seant\Documents\GitHub\APCSP-Create-Pong\Pong\RobotDecisions.py", line 180, in robot_code
+    robot.investment(max_speed_increase, cooling_increase, battery_life_increase, cost)
+TypeError: investment() takes exactly 3 arguments (5 given)
+
+investment method got deleted in Robot class
+Fixed by recreating investment method
+
+5. Try to merge robot-decisions-differentiation branch with master branch but there were conflicting files.

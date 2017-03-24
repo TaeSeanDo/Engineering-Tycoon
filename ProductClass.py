@@ -9,6 +9,6 @@ class Product:
     def __init__(self, difficulty, revenue):
         self.budget = 600 / difficulty
         self.revenue = revenue
-    def investment(self, revenue_increase, budget_decrease):
-        self.revenue += revenue_increase
+    def investment(self, revenue, budget_decrease):
+        self.revenue += revenue
         self.budget -= budget_decrease
