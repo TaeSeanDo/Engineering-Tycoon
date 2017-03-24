@@ -47,7 +47,7 @@ if product_choice == 1:
             MD_processor_proficiency = int(raw_input('Try again'))
     while MD_internal_storage_capacity < 1 or MD_internal_storage_capacity > 5:
         try:
-            MD_internal_storage_capacity = int(raw_input("1-5 capacity"))
+            MD_interenal_storage_capacity = int(raw_input("1-5 capacity"))
         except:
             MD_internal_storage_capacity = int(raw_input("Try again"))
     while MD_headjack_YN < 1 or MD_headjack_YN > 2:
