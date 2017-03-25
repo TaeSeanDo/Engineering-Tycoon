@@ -192,6 +192,8 @@ def robot_code():
             show_stats = raw_input("Type 'Y' or 'N'").upper()
         if show_stats == 'Y':
             print robot
+
+    #the good, the bad, and the ugly
     print "/nYour final revenue is $" + str(robot.revenue)
     if robot.revenue < 5000:
         print "Your robot is kinda pathetic, I'm not gonna lie. You will live the rest of your life in debt and poverty.\nBetter luck next time!"
