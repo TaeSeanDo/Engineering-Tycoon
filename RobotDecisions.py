@@ -10,7 +10,7 @@ def robot_code():
         try:
             colors_length = int(raw_input("How many colors should it come in? (Enter a number between 1 and 5)\n"))
         except:
-            print "Please enter a number.\n"
+            print "Please enter an integer between 1 and 5.\n"
             continue
         else:
             if colors_length >= 1 and colors_length <= 5:
@@ -33,26 +33,29 @@ def robot_code():
         try:
             length = int(raw_input("What should the length of the robot be in inches?\n"))
         except:
-            print "Please enter a number.\n"
+            print "Please enter a positive integer.\n"
             continue
         else:
-            break
+            if length > 0:
+                break
     while True:
         try:
             width = int(raw_input("What about the width?\n"))
         except:
-            print "Please enter a number.\n"
+            print "Please enter a positive integer.\n"
             continue
         else:
-            break
+            if width > 0:
+                break
     while True:
         try:
             height = int(raw_input("The height?\n"))
         except:
-            print "Please enter a number.\n"
+            print "Please enter a positive integer.\n"
             continue
         else:
-            break
+            if height > 0:
+                break
     size = [length, width, height]
     print "Your difficulty determines your starting budget as well as your overall luck when making decisions."
     while True:
@@ -180,11 +183,12 @@ def robot_code():
                 print "You chose to invest in battery."
                 """
         robot.investment(max_speed_increase, cooling_increase, battery_life_increase, cost)
+        if robot.budget <= 0:
+            break
 
         show_stats = raw_input("Show stats? (Y/N)").upper()
         while show_stats != 'Y' and show_stats != 'N':
             show_stats = raw_input("Type 'Y' or 'N'").upper()
         if show_stats == 'Y':
             print robot
-        if robot.budget <= 0:
-            break
+    #Insert possible endings here
