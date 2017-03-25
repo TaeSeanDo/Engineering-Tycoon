@@ -4,12 +4,9 @@ Arnob Kabir
 main program
 """
 from RobotDecisions import robot_code
+
 import MobileDevices
 
-print "                   =================="
-print "                   |   ENGINEERING  |"
-print "                   |     TYCOON     |"
-print "                   =================="
 
 product_choice = int(raw_input("Do you want to build (1) a mobile device, (2) a robot, or (3) a snowman?"))
 
