@@ -9,6 +9,7 @@ class Robot(Product):
     """Class for Robot, inherits Product class"""
     def __init__(self, difficulty, colors, size, max_speed = 1, cooling_system = 1,  battery_life = 1, revenue = 0):
         Product.__init__(self, difficulty, revenue)
+        self.difficulty = difficulty
         self.colors = colors
         self.size =  size
         self.max_speed = max_speed
@@ -33,6 +34,10 @@ class Robot(Product):
                     msg += ", "
                 if i == len(self.colors) - 2:
                     msg += "and "
-        msg += ". \n\tBudget: " + str(self.budget)
-        msg += "\n\tRevenue: " + str(self.revenue)
+        msg += ". \n\n\tMaximum speed in meters/sec: " + str(self.max_speed)
+        msg += "\n\tCooling system proficiency: " + str(self.cooling_system)
+        msg += "\n\tBattery life in hours: " + str(self.battery_life)
+        msg += "\n\n\tDifficulty: " + str(self.difficulty)
+        msg += "\n\tBudget: " + str(self.budget)
+        msg += "\n\tRevenue: " + str(self.revenue) + '\n'
         return msg
