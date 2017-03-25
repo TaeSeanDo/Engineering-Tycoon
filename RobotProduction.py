@@ -2,7 +2,7 @@
 Sean Tierney
 Robot-production class
 """
-from math import pow
+from math import log10
 from ProductClass import Product
 
 class Robot(Product):
@@ -19,7 +19,7 @@ class Robot(Product):
         self.max_speed += max_speed_increase
         self.cooling_system += cooling_system_increase
         self.battery_life += battery_life_increase
-        revenue = 5000 * pow(self.max_speed, 1.0/3) + 3000 * pow(self.cooling_system, 1.0/3) + 8000 * pow(self.battery_life, 1.0/3)
+        revenue = 3000 * log10(self.max_speed) + 1800 * log10(self.cooling_system) + 4800 * log10(self.battery_life)
         Product.investment(self, revenue, cost)
     def __str__(self):
         msg = "Your robot is " + str(self.size[0]) + " x " + str(self.size[1]) + " x " + str(self.size[2]) + " and comes in " + str(len(self.colors)) + " color"

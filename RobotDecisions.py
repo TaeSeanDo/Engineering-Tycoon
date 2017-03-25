@@ -31,7 +31,16 @@ def robot_code():
     print "\nYou should also decide the physical parameters of the robot."
     while True:
         try:
-            length = int(raw_input("What should the length of the robot be in inches?\n"))
+            height = int(raw_input("What should the height of the robot be in inches?\n"))
+        except:
+            print "Please enter a positive integer.\n"
+            continue
+        else:
+            if height > 0:
+                break
+    while True:
+        try:
+            length = int(raw_input("What about the length?\n"))
         except:
             print "Please enter a positive integer.\n"
             continue
@@ -40,23 +49,15 @@ def robot_code():
                 break
     while True:
         try:
-            width = int(raw_input("What about the width?\n"))
+            width = int(raw_input("The width?\n"))
         except:
             print "Please enter a positive integer.\n"
             continue
         else:
             if width > 0:
                 break
-    while True:
-        try:
-            height = int(raw_input("The height?\n"))
-        except:
-            print "Please enter a positive integer.\n"
-            continue
-        else:
-            if height > 0:
-                break
     size = [length, width, height]
+
     print "Your difficulty determines your starting budget as well as your overall luck when making decisions."
     while True:
         try:
@@ -68,9 +69,8 @@ def robot_code():
             if difficulty >= 1 and difficulty <= 5:
                 break
     robot = Robot(difficulty, colors, size)
+
     print robot
-
-
 
 
     decision_num = 3
@@ -184,6 +184,7 @@ def robot_code():
                 """
         robot.investment(max_speed_increase, cooling_increase, battery_life_increase, cost)
         if robot.budget <= 0:
+            print "Your budget dropped to $0"
             break
 
         show_stats = raw_input("Show stats? (Y/N)").upper()
@@ -191,4 +192,12 @@ def robot_code():
             show_stats = raw_input("Type 'Y' or 'N'").upper()
         if show_stats == 'Y':
             print robot
-    #Insert possible endings here
+
+    #the good, the bad, and the ugly
+    print "/nYour final revenue is $" + str(robot.revenue)
+    if robot.revenue < 30000:
+        print "Your robot is kinda pathetic, I'm not gonna lie. You will live the rest of your life in debt and poverty.\nBetter luck next time!"
+    elif robot.revenue >= 30000 and robot.revenue < 60000:
+        print "Your robot sold pretty well and you made a decent profit."
+    else:
+        print "Your robot was a serious competitor in the robot industry and it caused you to draw extreme profits. \nCongratulations!"
