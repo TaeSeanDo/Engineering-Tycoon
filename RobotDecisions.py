@@ -184,6 +184,7 @@ def robot_code():
                 """
         robot.investment(max_speed_increase, cooling_increase, battery_life_increase, cost)
         if robot.budget <= 0:
+            print "Your budget dropped to $0"
             break
 
         show_stats = raw_input("Show stats? (Y/N)").upper()
@@ -191,4 +192,10 @@ def robot_code():
             show_stats = raw_input("Type 'Y' or 'N'").upper()
         if show_stats == 'Y':
             print robot
-    #Insert possible endings here
+    print "/nYour final revenue is $" + str(robot.revenue)
+    if robot.revenue < 5000:
+        print "Your robot is kinda pathetic, I'm not gonna lie. You will live the rest of your life in debt and poverty.\nBetter luck next time!"
+    elif robot.revenue >= 5000 and robot.revenue < 10000:
+        print "Your robot sold pretty well and you made a decent profit."
+    else:
+        print "Your robot was a serious competitor in the robot industry and it caused you to draw extreme profits. \nCongratulations!"
