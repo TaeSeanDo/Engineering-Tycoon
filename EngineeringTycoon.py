@@ -7,8 +7,15 @@ from RobotDecisions import robot_code
 
 import MobileDevices
 
-
-product_choice = int(raw_input("Do you want to build (1) a mobile device, (2) a robot, or (3) a snowman?"))
+while True:
+    try:
+        product_choice = int(raw_input("Do you want to build (1) a mobile device, (2) a robot, or (3) a snowman?\n"))
+    except:
+        print "\nPlease enter a number\n."
+        continue
+    else:
+        if product_choice >= 1 and product_choice <= 3:
+            break
 
 if product_choice == 1:
     #MD stands for "Mobile Device"
@@ -68,6 +75,3 @@ elif product_choice == 2:
 
 elif product_choice == 3:
     print "Do you want to build a snowman?"
-
-else:
-    print "That is not a choice"
