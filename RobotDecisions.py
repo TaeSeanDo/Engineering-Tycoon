@@ -63,7 +63,7 @@ def robot_code():
         try:
             difficulty = int(raw_input("What is the difficulty --> (1) BEGINNER, (2) EASY, (3) MEDIUM, (4) HARD, OR (5) EXPERT?\n"))
         except:
-            print "Please enter a number.\n"
+            print "Please enter a whole number between 1 and 5.\n"
             continue
         else:
             if difficulty >= 1 and difficulty <= 5:
@@ -73,7 +73,7 @@ def robot_code():
     print robot
 
 
-    decision_num = 3
+    decision_num = 5
     for i in range (decision_num):
         max_speed_increase = 0
         cooling_increase = 0
@@ -81,9 +81,10 @@ def robot_code():
         cost = 0
 
         if i == 0:
-            decision1 = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?\n")
+            print "The best way to earn a profit is to invest in your product."
+            decision1 = raw_input("Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?\n")
             while (decision1 != '1' and decision1 != '2' and decision1 != '3'):
-                decision1 = raw_input("Enter a number between 1 and 3, please.\n")
+                decision1 = raw_input("Enter a whole number between 1 and 3, please.\n")
             decision1 = int(decision1)
             if decision1 == 1:
                 print "You chose to invest in speed.\n"
@@ -98,7 +99,7 @@ def robot_code():
             battery_life_increase = 0
             decision2 = raw_input("Do you want to do make (1) a small investment of $1000 or (2) a large investment of $6000 at this time?\n")
             while (decision2 != '1' and decision2 != '2'):
-                decision2 = raw_input("Enter a number between 1 and 2, please.\n")
+                decision2 = raw_input("Enter 1 or 2.\n")
             decision2 = int(decision2)
             if decision2 == 1:
                 cost = 1000
@@ -124,9 +125,11 @@ def robot_code():
                 print "You chose to take a risk.\n"
 
         if i == 2:
+            print "All great feats of engineering were accomplished through extensive research, though research does not always work."
+            print "The cost of this research is $10000."
             decision3 = raw_input("All great feats of engineering were accomplished through extensive research, though research does not always work. Would you like to conduct research on your product? (Y/N)\n").upper()
             while (decision3 != 'Y' and decision3 != 'N'):
-                decision3 = raw_input("Enter Y or N, please.\n")
+                decision3 = raw_input("Enter Y or N, please.\n").upper()
             if decision3 == 'Y':
                 research = True
                 print "You chose to research for your robot.\n"
@@ -146,7 +149,7 @@ def robot_code():
                 battery_life_increase = 3
 
         if i == 3:
-            print "A new battery just entered the market. This battery is 3 times lighter than the original battery and it holds a charge for twice as long.
+            print "A new battery just entered the market. This battery is 3 times lighter than the original battery and it holds a charge for twice as long."
             print "However, transitioning to this battery will cost $5000"
             decision4 = raw_input("Do you want to start (Y/N)").upper()
             while decision4 != 'Y' and decision4 != 'N':
@@ -168,6 +171,9 @@ def robot_code():
                 battery_life_increase = 1
                 cost = 3500
                 print "You make your robot faster and your battery life longer."
+            if robot.budget > 0:
+                print "\nCongratulations, you made it through the entire game without spending your entire budget."
+                print "You officially deserve the \"Cheapskate Award.\""
 
 
         robot.investment(max_speed_increase, cooling_increase, battery_life_increase, cost)
@@ -182,7 +188,7 @@ def robot_code():
             print robot
 
     #the good, the bad, and the ugly
-    print "/nYour final revenue is $" + str(robot.revenue)
+    print "\nYour final revenue is $" + str(robot.revenue)
     if robot.revenue < 30000:
         print "Your robot is kinda pathetic, I'm not gonna lie. You will live the rest of your life in debt and poverty.\nBetter luck next time!"
     elif robot.revenue >= 30000 and robot.revenue < 60000:
