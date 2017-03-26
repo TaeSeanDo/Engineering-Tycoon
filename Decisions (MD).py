@@ -34,7 +34,7 @@ def mobile_devices_function():
             if i == 1:
                     decision = raw_input("Would you like to research (press '1' for choices, press '0' to not research anything)?")
                 if decision == 1:
-                    print "Here is what you can research:\n\n|  Item  | price |Succession rate|\n|Projector |$4000|30%|"
+                    print "Here is what you can research:\n\n|  Item  | price |Success rate|\n|Projector |$4000|30%|"
 
 
 
