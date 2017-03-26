@@ -141,47 +141,35 @@ def robot_code():
             else:
                 research_success = False
             if research_success:
-                max_speed_increase = 5
-                cooling_increase = 5
-                battery_life_increase = 5
+                max_speed_increase = 3
+                cooling_increase = 3
+                battery_life_increase = 3
 
-                """
         if i == 3:
-            decision = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
-            while (decision != '1' and decision != '2' and decision != '3'):
-                decision = raw_input("Enter a number between 1 and 3, please.")
-            decision = int(decision)
-            if decision == 1:
+            print "A new battery just entered the market. This battery is 3 times lighter than the original battery and it holds a charge for twice as long.
+            print "However, transitioning to this battery will cost $5000"
+            decision4 = raw_input("Do you want to start (Y/N)").upper()
+            while decision4 != 'Y' and decision4 != 'N':
+                decision4 = raw_input("Type 'Y' or 'N'").upper()
+            if decision4 == 'Y':
                 max_speed_increase = 1
-                cost = 2000
-                print "You chose to invest in speed."
-            elif decision == 2:
-                cooling_increase = 1
-                cost = 2000
-                print "You chose to invest in cooling."
-            elif decision == 3:
-                battery_life_increase = 1
+                battery_life_increase = 3
                 cost = 5000
-                print "You chose to invest in battery."
+                print "You make your robot faster and your battery life longer."
 
         if i == 4:
-            decision = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
-            while (decision != '1' and decision != '2' and decision != '3'):
-                decision = raw_input("Enter a number between 1 and 3, please.")
-            decision = int(decision)
-            if decision == 1:
-                max_speed_increase = 1
-                cost = 2000
-                print "You chose to invest in speed."
-            elif decision == 2:
-                cooling_increase = 1
-                cost = 2000
-                print "You chose to invest in cooling."
-            elif decision == 3:
+            print "A new method for increasing the speed of your robot has been discovered."
+            print "However, using this method for your robot may cause it to overheat slightly and incorporating it into your engineering process will cost $3500."
+            decision4 = raw_input("Do you want to start (Y/N)").upper()
+            while decision4 != 'Y' and decision4 != 'N':
+                decision4 = raw_input("Type 'Y' or 'N'").upper()
+            if decision4 == 'Y':
+                max_speed_increase = 4
                 battery_life_increase = 1
-                cost = 5000
-                print "You chose to invest in battery."
-                """
+                cost = 3500
+                print "You make your robot faster and your battery life longer."
+
+
         robot.investment(max_speed_increase, cooling_increase, battery_life_increase, cost)
         if robot.budget <= 0:
             print "Your budget dropped to $0"

@@ -47,3 +47,5 @@ NameError: global name 'budget' is not defined
 7. Program keeps asking "How many colors should it come in? (Enter a number between 1 and 5)", should only ask once
 2 different formats for asking user colors_length --> ran both
 deleted 1 so maybe this fixes it?
+
+8.Put opportunities
