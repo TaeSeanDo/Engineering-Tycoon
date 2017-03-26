@@ -9,10 +9,10 @@ import MobileDevices
 def enter():
     raw_input()
 
-ChocDecision = raw_input("When you were young, you were absolutely obsessed with chocolate. One day, a 7 year old girl came up to you and asked you if she could have some of your chocolate. Do you give her some? (Y/N)").upper
-if ChocDecision == "Y":
+ChocoDecision = raw_input("When you were young, you were absolutely obsessed with chocolate. One day, a 7 year old girl came up to you and asked you if she could have some of your chocolate. Do you give her some? (Y/N)").upper
+if ChocoDecision == "Y":
     print "You may have less chocolate, but at least someone else could share your passion for chocolate."
-if ChocDecision == "N":
+if ChocoDecision == "N":
     print "As you told the girl that you would not give her chocolate, her eyes lit up with a burning passion. You may regret this decision in the future, but only time will tell."
 
 enter()
