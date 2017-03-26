@@ -1,14 +1,12 @@
 #Sets up the class for mobile devices
-class mobile_devices:
+from ProductClass import Product
+class mobile_devices(Product):
     def __init__(self, difficulty, colors, headjack_YN, battery_life, material,
-        processor_proficiency=1, internal_storage_capacity=1, revenue=0,  price=0):
-        self.budget = 600000/difficulty
+        processor_proficiency = 1, internal_storage_capacity = 1, revenue = 0):
         self.colors = colors
         self.headjack_YN = headjack_YN
         self.battery_life = battery_life
         self.material = material
-        self.revenue = revenue
-        self.price = price
 
 #Investment function keeps track of money
     def investment(self, revenue_change, budget_change):

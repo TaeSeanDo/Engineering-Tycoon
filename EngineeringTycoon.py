@@ -82,7 +82,7 @@ elif product_choice == 3:
 else:
     print "That is not a choice"
 
-
+"""
         if i == 3:
             decision = raw_input("The best way to earn a profit is to invest in your product. Would you like to invest in (1) the speed of your robot, (2) your cooling system, or (3) the battery life?")
             while (decision != '1' and decision != '2' and decision != '3'):
@@ -117,3 +117,4 @@ else:
                 battery_life_increase = 1
                 cost = 5000
                 print "You chose to invest in battery."
+"""
