@@ -1,7 +1,7 @@
 from RobotProduction import Robot
 import random
 
-def robot_code():
+def robot_code(player_is_generous):
     print "OK, so you chose to build a robot."
     print
 
@@ -73,7 +73,7 @@ def robot_code():
     print robot
 
 
-    decision_num = 5
+    decision_num = 6
     for i in range (decision_num):
         max_speed_increase = 0
         cooling_increase = 0
@@ -138,39 +138,40 @@ def robot_code():
                 research = False
                 print "You chose not to research for your robot.\n"
                 cost = 0
-            research_rand_num = random.randint(1, 10)
-            if (robot.difficulty == 1 and research_rand_num <= 7) or (robot.difficulty == 2 and research_rand_num <= 5) or (robot.difficulty == 3 and research_rand_num <= 3):
-                research_success = True
-            else:
-                research_success = False
-            if research_success:
-                max_speed_increase = 3
-                cooling_increase = 3
-                battery_life_increase = 3
+            if research:
+                research_rand_num = random.randint(1, 10)
+                if (robot.difficulty == 1 and research_rand_num <= 7) or (robot.difficulty == 2 and research_rand_num <= 5) or (robot.difficulty == 3 and research_rand_num <= 3):
+                    research_success = True
+                else:
+                    research_success = False
+                if research_success:
+                    max_speed_increase = 3
+                    cooling_increase = 3
+                    battery_life_increase = 3
 
         if i == 3:
             print "A new battery just entered the market. This battery is 3 times lighter than the original battery and it holds a charge for twice as long."
             print "However, transitioning to this battery will cost $5000"
-            decision4 = raw_input("Do you want to start (Y/N)").upper()
+            decision4 = raw_input("Do you want to use this battery? (Y/N)").upper()
             while decision4 != 'Y' and decision4 != 'N':
                 decision4 = raw_input("Type 'Y' or 'N'").upper()
             if decision4 == 'Y':
                 max_speed_increase = 1
                 battery_life_increase = 3
                 cost = 5000
-                print "You make your robot faster and your battery life longer."
+                print "You made your robot faster and your battery life longer."
 
         if i == 4:
             print "A new method for increasing the speed of your robot has been discovered."
             print "However, using this method for your robot may cause it to overheat slightly and incorporating it into your engineering process will cost $3500."
-            decision4 = raw_input("Do you want to start (Y/N)").upper()
+            decision4 = raw_input("Do you want to use this method in your process? (Y/N)").upper()
             while decision4 != 'Y' and decision4 != 'N':
                 decision4 = raw_input("Type 'Y' or 'N'").upper()
             if decision4 == 'Y':
                 max_speed_increase = 4
-                battery_life_increase = 1
+                cooling_increase = -1
                 cost = 3500
-                print "You make your robot faster and your battery life longer."
+                print "You are now using the new method and your robot is faster as a result."
             if robot.budget > 0:
                 print "\nCongratulations, you made it through the entire game without spending your entire budget."
                 print "You officially deserve the \"Cheapskate Award.\""
@@ -187,8 +188,32 @@ def robot_code():
         if show_stats == 'Y':
             print robot
 
+    print "BREAKING NEWS!!!"
+    print "There is new fierce competitor in the robot market: Stacy Botson."
+    print "When researching her, your ",
+    if player_is_generous:
+        print "face lights up "
+    else:
+        print "heart sinks "
+    print "when you recognize her as the girl you saw in the fields almost 20 years ago."
+    print "Once this woman discovers that you are in the marketplace, ",
+    if player_is_generous:
+        print "she jumps on the chance to help you out with your robot."
+        print "She even offers to merge your and her firms together. You accept, of course." #Allow the player to decide
+        print "This creates a boom in your revenue, the like of which you have never seen before!"
+        max_speed_increase = 5
+        cooling_increase = 5
+        battery_life_increase = 5
+    else:
+        print "she rapidly hunts you down to crush your chances in the marketplace."
+        print "It's too bad she holds grudges."
+        max_speed_increase = -5
+        cooling_increase = -5
+        battery_life_increase = -5
+
     #the good, the bad, and the ugly
-    print "\nYour final revenue is $" + str(robot.revenue)
+    print "\nYour final stats are: \n"
+    print robot
     if robot.revenue < 30000:
         print "Your robot is kinda pathetic, I'm not gonna lie. You will live the rest of your life in debt and poverty.\nBetter luck next time!"
     elif robot.revenue >= 30000 and robot.revenue < 60000:

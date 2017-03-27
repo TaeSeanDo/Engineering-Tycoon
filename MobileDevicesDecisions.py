@@ -1,7 +1,8 @@
 #Decisions for the Mobile Devices branch
 from MobileDevices import mobile_devices
+import random
 
-def Mobile_Devices_Code():
+def Mobile_Devices_Code(player_is_generous):
 
     print "20 years after the little 'chocolate incident', you decided to enter the mobile device manufacturing business."
 
@@ -81,11 +82,20 @@ def Mobile_Devices_Code():
                 while decision != 'Y' or decision != 'N':
                     decision = str(raw_input("The greatest people create new innovations through extensive research. However, research does not always produce results. It costs $10000 to research. Do you want to take the risk? (Y/N)")).upper()
                     if decision == 'Y':
-                        print "You decided to research"
+                        print "You decided to research."
                         cost = 10000
+                        research_rand_num = random.randint(1, 10)
+                        if (UserProduct.difficulty == 1 and research_rand_num <= 7) or (UserProduct.difficulty == 2 and research_rand_num <= 5) or (UserProduct.difficulty == 3 and research_rand_num <= 3):
+                            research_success = True
+                        else:
+                            research_success = False
+                        if research_success:
+                            internal_storage_capacity_increase = 3
+                            processor_proficiency_increase = 3
+                            battery_life_MD_increase = 3
                         break
                     elif decision == 'N':
-                        print "You decided not to research"
+                        print "You decided not to research."
                         cost = 0
                         break
 
@@ -93,21 +103,24 @@ def Mobile_Devices_Code():
 
             if i == 2:
                 while decision != 'Y' or decision != 'N':
-                    decision = str(raw_input("A smaller, more efficient battery is now on the market. By switching to it, you can have more room for internal storage. However, switching to it costs $5000. Do you switch? (Y/N)"))
+                    decision = raw_input("A smaller, more efficient battery is now on the market. By switching to it, you can have more room for internal storage. However, switching to it costs $5000. Do you switch? (Y/N)").upper()
                     if decision == 'Y':
+                        print "You chose to switch."
                         internal_storage_capacity_increase = 1
                         battery_life_MD_increase = 1
                         cost = 5000
                         break
-                        print "You chose to switch."
                     elif decision == 'N':
                         print "You decided not to switch"
                         cost = 0
                         break
+                    else:
+                        print "Enter 'Y' or 'N'."
+
 
             if i == 3:
                 while decision != 'Y' or decision != 'N':
-                    decision = int(raw_input("A new smaller, and faster processor is now on the market. Switching to it will allow you to add more internal storage to the phone. However, it will cost $5000. Do you want to switch? (Y/N)")).upper()
+                    decision = raw_input("A new smaller, and faster processor is now on the market. Switching to it will allow you to add more internal storage to the phone. However, it will cost $5000. Do you want to switch? (Y/N)").upper()
                     if decision == 'Y':
                         internal_storage_capacity_increase = 1
                         processor_proficiency_increase = 1
@@ -118,25 +131,53 @@ def Mobile_Devices_Code():
                         print "You chose not to switch"
                         cost = 0
                         break
+                if UserProduct.budget > 0:
+                    print "\nCongratulations, you made it through the entire game without spending your entire budget."
+                    print "You officially deserve the \"Cheapskate Award.\""
 
-            mobile_devices.investment(internal_storage_capacity_increase, processor_proficiency_increase, battery_life_MD_increase, cost)
-            if mobile_devices.budget <= 0:
+
+            UserProduct.investment(internal_storage_capacity_increase, processor_proficiency_increase, battery_life_MD_increase, cost)
+            if UserProduct.budget <= 0:
                 print "Your budget dropped to $0"
                 break
 
-                show_stats = raw_input("Show stats? (Y/N)").upper()
-                while show_stats != 'Y' and show_stats != 'N':
-                    show_stats = raw_input("Type 'Y' or 'N'").upper()
-                    if show_stats == 'Y':
-                        print mobile_devices
+            show_stats = raw_input("Show stats? (Y/N)").upper()
+            while show_stats != 'Y' and show_stats != 'N':
+                show_stats = raw_input("Type 'Y' or 'N'").upper()
+            if show_stats == 'Y':
+                print UserProduct
 
 
-    print "\nYour final revenue is $" + str(MobileDevices.revenue)
-    if mobile_devices.revenue < 30000:
+    print "BREAKING NEWS!!!"
+    print "There is new fierce competitor in the market for mobile devices and she's no phoney: Jenny Ringman."
+    print "When researching her, your ",
+    if player_is_generous:
+        print "face lights up "
+    else:
+        print "heart sinks "
+    print "when you recognize her as the girl you saw in the fields almost 20 years ago."
+    print "Once this woman discovers that you are in the marketplace, ",
+    if player_is_generous:
+        print "she jumps on the chance to help you out with your mobile device."
+        print "She even offers to merge your and her firms together. You accept, of course." #Allow the player to decide
+        print "This creates a boom in your revenue, the like of which you have never seen before!"
+        internal_storage_capacity_increase = 5
+        processor_proficiency_increase = 5
+        battery_life_MD_increase = 5
+    else:
+        print "she rapidly hunts you down to crush your chances in the marketplace."
+        print "It's too bad she holds grudges."
+        internal_storage_capacity_increase = -5
+        processor_proficiency_increase = -5
+        battery_life_increase = -5
+
+    UserProduct.investment(internal_storage_capacity_increase, processor_proficiency_increase, battery_life_MD_increase, cost)
+
+    print "\nYour final stats are: \n"
+    print UserProduct
+    if UserProduct.revenue < 15000:
         print "Your phone is kinda pathetic, I'm not gonna lie. You will live the rest of your life in debt and poverty.\nBetter luck next time!"
-    elif mobile_devices.revenue >= 30000 and MobileDevices.revenue < 60000:
+    elif UserProduct.revenue >= 15000 and UserProduct.revenue < 30000:
         print "Your phone sold pretty well and you made a decent profit."
     else:
         print "Your phone was a serious competitor in the phone industry and it caused you to draw extreme profits. \nCongratulations!"
-
-Mobile_Devices_Code()
