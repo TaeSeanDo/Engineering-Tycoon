@@ -32,3 +32,4 @@ class mobile_devices(Product):
         elif self.material == '3':
             MaterialMsg = 'iron'
         msg = "Your mobile device comes in " + str(self.colors) + " colors. It " + HeadjackMsg + " a headjack. It is made of " + MaterialMsg + "."
+        return msg

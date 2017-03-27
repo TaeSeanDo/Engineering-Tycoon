@@ -46,7 +46,7 @@ def Mobile_Devices_Code():
 
 
     UserProduct = mobile_devices(MD_difficulty, MD_color, MD_headjack_YN, MD_material)
-
+    print UserProduct
 
     decision_num = 4
     for i in range(decision_num):
@@ -130,7 +130,7 @@ def Mobile_Devices_Code():
                     if show_stats == 'Y':
                         print mobile_devices
 
- #the good, the bad, and the ugly
+
     print "\nYour final revenue is $" + str(MobileDevices.revenue)
     if mobile_devices.revenue < 30000:
         print "Your phone is kinda pathetic, I'm not gonna lie. You will live the rest of your life in debt and poverty.\nBetter luck next time!"
