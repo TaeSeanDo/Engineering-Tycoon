@@ -7,7 +7,7 @@ from ProductClass import Product
 
 class Robot(Product):
     """Class for Robot, inherits Product class"""
-    def __init__(self, difficulty, colors, size, max_speed = 1, cooling_system = 1,  battery_life = 1, revenue = 0):
+    def __init__(self, difficulty, colors, size, max_speed=1, cooling_system=1,  battery_life=1, revenue=0):
         Product.__init__(self, difficulty, revenue)
         self.difficulty = difficulty
         self.colors = colors
@@ -19,6 +19,9 @@ class Robot(Product):
         self.max_speed += max_speed_increase
         self.cooling_system += cooling_system_increase
         self.battery_life += battery_life_increase
+        self.max_speed = max(self.max_speed, 1)
+        self.cooling_system = max(self.cooling_system, 1)
+        self.battery_life = max(self.battery_life, 1)
         revenue = 3000 * log10(self.max_speed) + 1800 * log10(self.cooling_system) + 4800 * log10(self.battery_life)
         Product.investment(self, revenue, cost)
     def __str__(self):
