@@ -127,7 +127,7 @@ def robot_code(player_is_generous):
         if i == 2:
             print "All great feats of engineering were accomplished through extensive research, though research does not always work."
             print "The cost of this research is $10000."
-            decision3 = raw_input("All great feats of engineering were accomplished through extensive research, though research does not always work. Would you like to conduct research on your product? (Y/N)\n").upper()
+            decision3 = raw_input("Would you like to conduct research on your product? (Y/N)\n").upper()
             while (decision3 != 'Y' and decision3 != 'N'):
                 decision3 = raw_input("Enter Y or N, please.\n").upper()
             if decision3 == 'Y':
