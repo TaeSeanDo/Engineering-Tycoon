@@ -51,27 +51,24 @@ def Mobile_Devices_Code(player_is_generous):
 
     decision_num = 4
     for i in range(decision_num):
+        internal_storage_capacity_increase = 0
+        processor_proficiency_increase = 0
+        battery_life_MD_increase = 0
             if i == 0:
                 decision = ''
                 while decision != '1' or decision != '2' or decision != '3':
                     decision = raw_input("Let's start with some investing! By investing in different attributes of your device, you can increase your revenue (for a price, of course). Would you like to invest in (1) the internal storage capacity ($2000), (2) processor profiency ($3000), or (3) the battery life ($4000) of the mobile device?")
                     if decision == "1":
                         internal_storage_capacity_increase = 1
-                        processor_proficiency_increase_increase = 0
-                        battery_life_MD_increase = 0
                         cost = 2000
                         break
                         print "You chose to invest in internal storage."
                     elif decision == "2":
-                        internal_storage_capacity_increase = 0
                         processor_proficiency_increase = 1
-                        battery_life_MD_increase = 0
                         cost = 3000
                         break
                         print "You chose to invest in processor speed."
                     elif decision == "3":
-                        internal_storage_capacity_increase = 0
-                        processor_proficiency_increase = 0
                         battery_life_MD_increase = 1
                         cost = 4000
                         break
@@ -112,7 +109,6 @@ def Mobile_Devices_Code(player_is_generous):
                         break
                     elif decision == 'N':
                         print "You decided not to switch"
-                        cost = 0
                         break
                     else:
                         print "Enter 'Y' or 'N'."
@@ -129,7 +125,6 @@ def Mobile_Devices_Code(player_is_generous):
                         print "You chose to swtich."
                     elif decision =='N':
                         print "You chose not to switch"
-                        cost = 0
                         break
                 if UserProduct.budget > 0:
                     print "\nCongratulations, you made it through the entire game without spending your entire budget."
