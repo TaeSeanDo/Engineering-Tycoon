@@ -5,6 +5,7 @@ Robot-production class
 from math import log10
 from ProductClass import Product
 
+#Sets up the class for mobile devices
 class Robot(Product):
     """Class for Robot, inherits Product class"""
     def __init__(self, difficulty, colors, size, max_speed=1, cooling_system=1,  battery_life=1, revenue=0):
@@ -15,6 +16,9 @@ class Robot(Product):
         self.max_speed = max_speed
         self.cooling_system = cooling_system
         self.battery_life = battery_life
+        self.set_stats()
+
+    #Investment function keeps track of money
     def investment(self, max_speed_increase, cooling_system_increase, battery_life_increase, cost):
         self.max_speed += max_speed_increase
         self.cooling_system += cooling_system_increase
@@ -24,6 +28,10 @@ class Robot(Product):
         self.battery_life = max(self.battery_life, 1)
         revenue = 3000 * log10(self.max_speed) + 1800 * log10(self.cooling_system) + 4800 * log10(self.battery_life)
         Product.investment(self, revenue, cost)
+
+    def set_stats(self):
+        self.stats = [self.max_speed, self.cooling_system, self.battery_life]
+
     def __str__(self):
         msg = "Your robot is " + str(self.size[0]) + " x " + str(self.size[1]) + " x " + str(self.size[2]) + " and comes in " + str(len(self.colors)) + " color"
         if len(self.colors) != 1:
@@ -39,10 +47,7 @@ class Robot(Product):
                     msg += ", "
                 if i == len(self.colors) - 2:
                     msg += "and "
-        msg += ". \n\n\tMaximum speed in meters/sec: " + str(self.max_speed)
-        msg += "\n\tCooling system proficiency: " + str(self.cooling_system)
-        msg += "\n\tBattery life in hours: " + str(self.battery_life)
-        msg += "\n\n\tDifficulty: " + str(self.difficulty)
-        msg += "\n\tBudget: " + str(self.budget)
-        msg += "\n\tRevenue: " + str(self.revenue) + '\n'
+        stat_msgs = ["Maximum speed in meters/sec", "Cooling system proficiency", "Battery life in hours"]
+        self.set_stats()
+        msg += Product.__str__(self, stat_msgs, self.stats)
         return msg

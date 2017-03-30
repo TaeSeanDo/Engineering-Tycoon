@@ -54,93 +54,95 @@ def Mobile_Devices_Code(player_is_generous):
         internal_storage_capacity_increase = 0
         processor_proficiency_increase = 0
         battery_life_MD_increase = 0
-            if i == 0:
-                decision = ''
-                while decision != '1' or decision != '2' or decision != '3':
-                    decision = raw_input("Let's start with some investing! By investing in different attributes of your device, you can increase your revenue (for a price, of course). Would you like to invest in (1) the internal storage capacity ($2000), (2) processor profiency ($3000), or (3) the battery life ($4000) of the mobile device?")
-                    if decision == "1":
-                        internal_storage_capacity_increase = 1
-                        cost = 2000
-                        break
-                        print "You chose to invest in internal storage."
-                    elif decision == "2":
-                        processor_proficiency_increase = 1
-                        cost = 3000
-                        break
-                        print "You chose to invest in processor speed."
-                    elif decision == "3":
-                        battery_life_MD_increase = 1
-                        cost = 4000
-                        break
-                        print "You chose to invest in battery life."
+
+        if i == 0:
+            decision = ''
+            while decision != '1' or decision != '2' or decision != '3':
+                decision = raw_input("Let's start with some investing! By investing in different attributes of your device, you can increase your revenue (for a price, of course). Would you like to invest in (1) the internal storage capacity ($2000), (2) processor profiency ($3000), or (3) the battery life ($4000) of the mobile device?")
+                if decision == "1":
+                    internal_storage_capacity_increase = 1
+                    cost = 2000
+                    break
+                    print "You chose to invest in internal storage."
+                elif decision == "2":
+                    processor_proficiency_increase = 1
+                    cost = 3000
+                    break
+                    print "You chose to invest in processor speed."
+                elif decision == "3":
+                    battery_life_MD_increase = 1
+                    cost = 4000
+                    break
+                    print "You chose to invest in battery life."
 
 
-            if i == 1:
-                while decision != 'Y' or decision != 'N':
-                    decision = str(raw_input("The greatest people create new innovations through extensive research. However, research does not always produce results. It costs $10000 to research. Do you want to take the risk? (Y/N)")).upper()
-                    if decision == 'Y':
-                        print "You decided to research."
-                        cost = 10000
-                        research_rand_num = random.randint(1, 10)
-                        if (UserProduct.difficulty == 1 and research_rand_num <= 7) or (UserProduct.difficulty == 2 and research_rand_num <= 5) or (UserProduct.difficulty == 3 and research_rand_num <= 3):
-                            research_success = True
-                        else:
-                            research_success = False
-                        if research_success:
-                            internal_storage_capacity_increase = 3
-                            processor_proficiency_increase = 3
-                            battery_life_MD_increase = 3
-                        break
-                    elif decision == 'N':
-                        print "You decided not to research."
-                        cost = 0
-                        break
-
-
-
-            if i == 2:
-                while decision != 'Y' or decision != 'N':
-                    decision = raw_input("A smaller, more efficient battery is now on the market. By switching to it, you can have more room for internal storage. However, switching to it costs $5000. Do you switch? (Y/N)").upper()
-                    if decision == 'Y':
-                        print "You chose to switch."
-                        internal_storage_capacity_increase = 1
-                        battery_life_MD_increase = 1
-                        cost = 5000
-                        break
-                    elif decision == 'N':
-                        print "You decided not to switch"
-                        break
+        if i == 1:
+            while decision != 'Y' or decision != 'N':
+                decision = str(raw_input("The greatest people create new innovations through extensive research. However, research does not always produce results. It costs $10000 to research. Do you want to take the risk? (Y/N)")).upper()
+                if decision == 'Y':
+                    print "You decided to research."
+                    cost = 10000
+                    research_rand_num = random.randint(1, 10)
+                    if (UserProduct.difficulty == 1 and research_rand_num <= 7) or (UserProduct.difficulty == 2 and research_rand_num <= 5) or (UserProduct.difficulty == 3 and research_rand_num <= 3):
+                        research_success = True
                     else:
-                        print "Enter 'Y' or 'N'."
+                        research_success = False
+                    if research_success:
+                        internal_storage_capacity_increase = 3
+                        processor_proficiency_increase = 3
+                        battery_life_MD_increase = 3
+                    break
+                elif decision == 'N':
+                    print "You decided not to research."
+                    cost = 0
+                    break
 
 
-            if i == 3:
-                while decision != 'Y' or decision != 'N':
-                    decision = raw_input("A new smaller, and faster processor is now on the market. Switching to it will allow you to add more internal storage to the phone. However, it will cost $5000. Do you want to switch? (Y/N)").upper()
-                    if decision == 'Y':
-                        internal_storage_capacity_increase = 1
-                        processor_proficiency_increase = 1
-                        cost = 5000
-                        break
-                        print "You chose to swtich."
-                    elif decision =='N':
-                        print "You chose not to switch"
-                        break
-                if UserProduct.budget > 0:
-                    print "\nCongratulations, you made it through the entire game without spending your entire budget."
-                    print "You officially deserve the \"Cheapskate Award.\""
+
+        if i == 2:
+            while decision != 'Y' or decision != 'N':
+                decision = raw_input("A smaller, more efficient battery is now on the market. By switching to it, you can have more room for internal storage. However, switching to it costs $5000. Do you switch? (Y/N)").upper()
+                if decision == 'Y':
+                    print "You chose to switch."
+                    internal_storage_capacity_increase = 1
+                    battery_life_MD_increase = 1
+                    cost = 5000
+                    break
+                elif decision == 'N':
+                    print "You decided not to switch"
+                    break
+                else:
+                    print "Enter 'Y' or 'N'."
 
 
-            UserProduct.investment(internal_storage_capacity_increase, processor_proficiency_increase, battery_life_MD_increase, cost)
-            if UserProduct.budget <= 0:
-                print "Your budget dropped to $0"
+        if i == 3:
+            while decision != 'Y' or decision != 'N':
+                decision = raw_input("A new smaller, and faster processor is now on the market. Switching to it will allow you to add more internal storage to the phone. However, it will cost $5000. Do you want to switch? (Y/N)").upper()
+                if decision == 'Y':
+                    internal_storage_capacity_increase = 1
+                    processor_proficiency_increase = 1
+                    cost = 5000
+                    break
+                    print "You chose to swtich."
+                elif decision =='N':
+                    print "You chose not to switch"
+                    break
+            if UserProduct.budget > 0:
+                print "\nCongratulations, you made it through the entire game without spending your entire budget."
+                print "You officially deserve the \"Cheapskate Award.\""
                 break
 
-            show_stats = raw_input("Show stats? (Y/N)").upper()
-            while show_stats != 'Y' and show_stats != 'N':
-                show_stats = raw_input("Type 'Y' or 'N'").upper()
-            if show_stats == 'Y':
-                print UserProduct
+
+        UserProduct.investment(internal_storage_capacity_increase, processor_proficiency_increase, battery_life_MD_increase, cost)
+        if UserProduct.budget <= 0:
+            print "Your budget dropped to $0"
+            break
+
+        show_stats = raw_input("Show stats? (Y/N)").upper()
+        while show_stats != 'Y' and show_stats != 'N':
+            show_stats = raw_input("Type 'Y' or 'N'").upper()
+        if show_stats == 'Y':
+            print UserProduct
 
 
     print "BREAKING NEWS!!!"
@@ -165,6 +167,8 @@ def Mobile_Devices_Code(player_is_generous):
         internal_storage_capacity_increase = -5
         processor_proficiency_increase = -5
         battery_life_increase = -5
+
+    final_stats_continue = raw_input("\n\nPress enter to continue.\n")
 
     UserProduct.investment(internal_storage_capacity_increase, processor_proficiency_increase, battery_life_MD_increase, cost)
 

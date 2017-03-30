@@ -11,8 +11,9 @@ class mobile_devices(Product):
         self.material = material
         self.processor_proficiency = processor_proficiency
         self.internal_storage_capacity = internal_storage_capacity
+        self.set_stats()
 
-#Investment function keeps track of money
+    #Investment function keeps track of money
     def investment(self, internal_storage_capacity_increase, processor_proficiency_increase, battery_life_MD_increase, cost):
         self.internal_storage_capacity += internal_storage_capacity_increase
         self.processor_proficiency += processor_proficiency_increase
@@ -22,6 +23,9 @@ class mobile_devices(Product):
         self.battery_life_MD = max(self.battery_life_MD, 1)
         revenue = 3000 * log10(self.internal_storage_capacity) + 1800 * log10(self.processor_proficiency) + 4800 * log10(self.battery_life_MD)
         Product.investment(self, revenue, cost)
+
+    def set_stats(self):
+        self.stats = [self.internal_storage_capacity, self.processor_proficiency, self.battery_life_MD]
 
     def __str__(self):
         if self.headjack_YN == 'Y':
@@ -35,9 +39,7 @@ class mobile_devices(Product):
         elif self.material == '3':
             MaterialMsg = 'iron'
         msg = "Your mobile device comes in " + str(self.colors) + " colors. It " + HeadjackMsg + " a headjack. It is made of " + MaterialMsg + ".\n"
-        msg += "\n\tInternal storage capacity: " + str(self.internal_storage_capacity)
-        msg += "\n\tProcessor proficiency: " + str(self.processor_proficiency)
-        msg += "\n\tBattery life: " + str(self.battery_life_MD)
-        msg += "\n\n\tBudget: " + str(self.budget)
-        msg += "\n\tRevenue: " + str(self.revenue)
+        stat_msgs = ["Internal storage capacity", "Processor proficiency", "Battery life in hours"]
+        self.set_stats()
+        msg += Product.__str__(self, stat_msgs, self.stats)
         return msg
