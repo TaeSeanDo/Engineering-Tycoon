@@ -175,6 +175,7 @@ def robot_code(player_is_generous):
             if robot.budget > 0:
                 print "\nCongratulations, you made it through the entire game without spending your entire budget."
                 print "You officially deserve the \"Cheapskate Award.\""
+                break
 
 
         robot.investment(max_speed_increase, cooling_increase, battery_life_increase, cost)
