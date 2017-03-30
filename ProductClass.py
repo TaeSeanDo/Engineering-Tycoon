@@ -5,7 +5,7 @@ Product class
 """
 
 class Product:
-    """docstring for Robot"""
+    """superclass for robot, mobile devices, and snowman"""
     def __init__(self, difficulty, revenue):
         self.difficulty = difficulty
         self.budget = 30000 / difficulty
