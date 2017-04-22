@@ -11,7 +11,7 @@ class Product:
         self.budget = 30000 / difficulty
         self.revenue = revenue
     def investment(self, revenue, budget_decrease):
-        self.revenue += revenue
+        self.revenue = revenue
         self.budget -= budget_decrease
     def __str__(self, stat_msgs, stats):
         if len(stat_msgs) != len(stats):

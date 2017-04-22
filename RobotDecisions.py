@@ -212,6 +212,9 @@ def robot_code(player_is_generous):
         cooling_increase = -5
         battery_life_increase = -5
 
+    final_stats_continue = raw_input("\n\nPress enter to continue.\n")
+    robot.investment(max_speed_increase, cooling_increase, battery_life_increase, cost)
+
     #the good, the bad, and the ugly
     print "\nYour final stats are: \n"
     print robot
